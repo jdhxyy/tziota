@@ -7,7 +7,7 @@ from .protocmp import *
 from .common import *
 
 MAX_LEN_FRAME = 8192
-INTERVAL_heartbeat_thread = 1
+INTERVAL_HEARTBEAT = 60
 OFFLINE_TIME = 180
 
 
@@ -97,11 +97,14 @@ def _deal_rx(data):
 def _heartbeat_thread():
     while True:
         if _socket != 0:
-            _send_heartbeat_thread()
-        time.sleep(INTERVAL_heartbeat_thread)
+            _send_heartbeat()
+        if is_online():
+            time.sleep(INTERVAL_HEARTBEAT)
+        else:
+            time.sleep(1)
 
 
-def _send_heartbeat_thread():
+def _send_heartbeat():
     global _param, _socket
 
     frame = bytearray()
