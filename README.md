@@ -11,4 +11,4 @@
 pip install tziota
 
 ## **参考示例**
-请参考[《TZ-IOT发布Python SDK：tziota》](https://blog.csdn.net/jdh99/article/details/90638387)
+请参考[《TZ-IOT发布Python SDK：tziota》](https://blog.csdn.net/jdh99/article/details/90674083)
